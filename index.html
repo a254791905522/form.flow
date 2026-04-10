@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormReady — Complete forms with more confidence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e8e6e1;
+            background-image:
+                radial-gradient(ellipse 120% 90% at 50% -20%, rgba(45, 106, 79, 0.08), transparent 50%),
+                linear-gradient(180deg, #f0ede6 0%, #e8e6e1 45%, #e2dfd6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 28px 20px;
+            position: relative;
+            overflow-x: hidden;
+            color: #2b3038;
+        }
+
+        .paper-texture {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.45;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .accent-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            z-index: 2;
+            background: linear-gradient(90deg, #1b4332 0%, #40916c 35%, #74c69d 70%, #95d5b2 100%);
+        }
+
+        .container {
+            background: #faf9f6;
+            border-radius: 20px;
+            border: 1px solid rgba(27, 67, 50, 0.12);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.9) inset,
+                0 24px 48px rgba(27, 67, 50, 0.08),
+                0 0 0 1px rgba(0, 0, 0, 0.02);
+            max-width: 640px;
+            width: 100%;
+            padding: 44px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-mark {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            line-height: 1;
+            background: linear-gradient(145deg, #d8f3dc 0%, #b7e4c7 100%);
+            border: 1px solid rgba(27, 67, 50, 0.18);
+            border-radius: 22px;
+            box-shadow: 0 8px 24px rgba(27, 67, 50, 0.1);
+        }
+
+        h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            line-height: 1.15;
+            color: #1b4332;
+        }
+
+        h1 .brand {
+            color: #1b4332;
+        }
+
+        .tagline {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #40916c;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #5c6370;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+
+        .badge {
+            background: rgba(27, 67, 50, 0.06);
+            border: 1px solid rgba(27, 67, 50, 0.14);
+            color: #2d6a4f;
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .description {
+            text-align: left;
+            color: #4a5058;
+            line-height: 1.78;
+            font-size: 0.98rem;
+            margin-bottom: 24px;
+        }
+
+        .description strong {
+            color: #1b4332;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            text-align: left;
+            background: linear-gradient(135deg, rgba(216, 243, 220, 0.5) 0%, rgba(183, 228, 199, 0.25) 100%);
+            border-radius: 14px;
+            border: 1px solid rgba(64, 145, 108, 0.22);
+            padding: 20px 22px;
+            margin-bottom: 26px;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #1b4332;
+            letter-spacing: 0.02em;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .highlight-box li {
+            color: #4a5058;
+            padding: 5px 0 5px 24px;
+            position: relative;
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+
+        .highlight-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #40916c;
+            font-weight: 700;
+            font-size: 0.85em;
+        }
+
+        .features {
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .features h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1b4332;
+            margin-bottom: 14px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            color: #4a5058;
+            padding: 8px 0 8px 28px;
+            position: relative;
+            font-size: 0.94rem;
+            line-height: 1.6;
+        }
+
+        .features li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            background: #40916c;
+            opacity: 0.85;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: linear-gradient(180deg, #1b4332 0%, #142f24 100%);
+            color: #f1f7f3;
+            padding: 15px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 20px rgba(27, 67, 50, 0.25);
+        }
+
+        .app-store-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(27, 67, 50, 0.3);
+            color: #fff;
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(27, 67, 50, 0.1);
+            font-size: 0.85rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .footer a {
+            color: #2d6a4f;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: #1b4332;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.65rem; }
+            .container { padding: 32px 22px; }
+            .app-mark { width: 84px; height: 84px; font-size: 38px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accent-line" aria-hidden="true"></div>
+    <div class="paper-texture" aria-hidden="true"></div>
+
+    <div class="container">
+        <div class="app-mark" role="img" aria-label="Form and checklist">📋</div>
+        <h1><span class="brand">FormReady</span></h1>
+        <p class="tagline">Know what may still be missing</p>
+        <p class="subtitle">Complete forms with more confidence—import, review, and prepare stronger submissions before you send.</p>
+
+        <div class="badges">
+            <span class="badge">Free</span>
+            <span class="badge">Utilities</span>
+            <span class="badge">iPhone &amp; iPad</span>
+            <span class="badge">iOS 17+</span>
+        </div>
+
+        <div class="description">
+            <p><strong>FormReady</strong> helps you spot likely missing proof, review readiness, and prepare paperwork with a calmer workflow. Bring PDFs, scans, screenshots, and image-based forms into one organized place—not only to fill and sign, but to understand <strong>what may still be missing</strong>, whether supporting proof might be required, and <strong>what to do next</strong> before you submit.</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>What you can expect</h3>
+            <ul>
+                <li><strong>Missing Proof Predictor</strong>—suggestions for IDs, receipts, signatures, or attachments that may still be needed.</li>
+                <li><strong>Submission Readiness</strong>—a simple view of how complete a form looks, not just whether fields are filled.</li>
+                <li><strong>Import &amp; organize</strong>—from Files, Photos, scans, and the share sheet into clear groups (e.g. To Complete, Needs Signature, Ready to Submit).</li>
+                <li><strong>OCR &amp; search</strong>—extract text when possible and find forms by title, date, issuer, or category.</li>
+            </ul>
+        </div>
+
+        <div class="features">
+            <h3>Built for real paperwork</h3>
+            <ul>
+                <li>Admin, insurance, reimbursement, school, medical, claims, and general applications—anything that needs more than a quick signature.</li>
+                <li>Fill, annotate, and sign while keeping everything in one reassuring, human-friendly flow.</li>
+                <li>Status tracking: draft, needs work, ready to submit, submitted, waiting attachments, archived.</li>
+                <li>Core experience is <strong>fully free</strong>—essential tools are not locked behind a paywall.</li>
+            </ul>
+        </div>
+
+        <a href="https://apps.apple.com/us/app/formready/id6761911042?uo=4" class="app-store-button" target="_blank" rel="noopener noreferrer">
+            Download on the App Store
+        </a>
+
+        <div class="footer">
+            <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; FormReady
+        </div>
+    </div>
+</body>
+
+</html>

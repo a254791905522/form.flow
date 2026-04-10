@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — FormReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e8e6e1;
+            background-image:
+                radial-gradient(ellipse 100% 60% at 50% 0%, rgba(45, 106, 79, 0.06), transparent 45%),
+                linear-gradient(180deg, #f0ede6 0%, #e8e6e1 100%);
+            color: #4a5058;
+            line-height: 1.75;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .accent-line {
+            height: 4px;
+            background: linear-gradient(90deg, #1b4332 0%, #40916c 40%, #74c69d 100%);
+        }
+
+        .wrap {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 36px 24px 64px;
+        }
+
+        .hero {
+            background: #faf9f6;
+            border: 1px solid rgba(27, 67, 50, 0.12);
+            border-radius: 18px;
+            padding: 32px 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 16px 40px rgba(27, 67, 50, 0.06);
+            text-align: center;
+        }
+
+        .hero .mark {
+            font-size: 2.25rem;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1b4332;
+            margin-bottom: 6px;
+        }
+
+        .hero .app {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #40916c;
+            letter-spacing: 0.03em;
+        }
+
+        .hero .effective {
+            margin-top: 12px;
+            font-size: 0.86rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        section {
+            margin-bottom: 28px;
+            padding: 24px 26px;
+            background: #faf9f6;
+            border-radius: 14px;
+            border: 1px solid rgba(27, 67, 50, 0.1);
+        }
+
+        section h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: #1b4332;
+            margin-bottom: 12px;
+        }
+
+        section p {
+            font-size: 0.97rem;
+            margin-bottom: 12px;
+        }
+
+        section p:last-child {
+            margin-bottom: 0;
+        }
+
+        section ul {
+            margin: 12px 0 0;
+            padding-left: 1.15rem;
+        }
+
+        section li {
+            margin-bottom: 8px;
+            font-size: 0.97rem;
+        }
+
+        section li:last-child {
+            margin-bottom: 0;
+        }
+
+        section strong {
+            color: #1b4332;
+            font-weight: 700;
+        }
+
+        .callout {
+            background: linear-gradient(135deg, rgba(216, 243, 220, 0.45) 0%, rgba(183, 228, 199, 0.2) 100%);
+            border: 1px solid rgba(64, 145, 108, 0.25);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-top: 14px;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .bottom-nav {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .bottom-nav a {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #1b4332;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 10px;
+            border: 1px solid rgba(27, 67, 50, 0.2);
+            background: #faf9f6;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .bottom-nav a:hover {
+            background: rgba(216, 243, 220, 0.4);
+            border-color: rgba(64, 145, 108, 0.35);
+        }
+
+        @media (max-width: 640px) {
+            .wrap { padding: 24px 18px 48px; }
+            .hero { padding: 26px 20px; }
+            .hero h1 { font-size: 1.5rem; }
+            section { padding: 20px 18px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accent-line" aria-hidden="true"></div>
+
+    <div class="wrap">
+        <header class="hero">
+            <div class="mark" aria-hidden="true">🔒</div>
+            <h1>Privacy summary</h1>
+            <p class="app">FormReady</p>
+            <p class="effective">Last updated: April 2026</p>
+        </header>
+
+        <section>
+            <h2>Scope</h2>
+            <p>This page describes how <strong>FormReady</strong> treats privacy in plain language. It applies to the app distributed on Apple’s App Store. Apple’s own policies and system disclosures also apply when you download, update, or use iOS and iPadOS features.</p>
+        </section>
+
+        <section>
+            <h2>Data collection</h2>
+            <p>According to the app’s <strong>App Privacy</strong> details on the App Store, <strong>no data is collected</strong> from the app for the categories Apple lists there. Practices can still vary with iOS version, device settings, or future app updates—check the store listing for the latest label.</p>
+            <div class="callout">
+                <p>FormReady is designed around your documents and workflow on device. There are no third-party analytics, advertising identifiers, or account sign-in described in the current store disclosure.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Your content</h2>
+            <p>Forms, PDFs, images, annotations, and signatures you add are handled as <strong>your files</strong>. They remain under your control on the device (and in any locations you choose to save or export to, such as iCloud Drive or Files). The app does not need to upload that content to provide the features described on the store page.</p>
+        </section>
+
+        <section>
+            <h2>Apple &amp; the platform</h2>
+            <p>Apple processes information when you use the App Store, sign in with an Apple ID, make purchases, or use system services. That processing is governed by <strong>Apple’s privacy policy</strong>, not by this summary.</p>
+        </section>
+
+        <section>
+            <h2>Children</h2>
+            <p>FormReady is rated <strong>4+</strong>. Parents and guardians can use Screen Time, Family Sharing, and App Store controls to manage installs and purchases.</p>
+        </section>
+
+        <section>
+            <h2>Changes</h2>
+            <p>This summary may be revised so it stays accurate. When it is updated, the <strong>last updated</strong> date at the top will change. If the app’s behavior or App Privacy label changes, the authoritative source is always the current listing on the App Store.</p>
+        </section>
+
+        <section>
+            <h2>Questions</h2>
+            <p>For privacy questions specific to the product, use the <strong>support or report options</strong> available on the app’s App Store page (for example, the developer contact or “App Support” entry Apple provides for that listing).</p>
+        </section>
+
+        <nav class="bottom-nav">
+            <a href="index.html">← FormReady overview</a>
+        </nav>
+    </div>
+</body>
+
+</html>
